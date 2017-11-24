@@ -1,6 +1,5 @@
 function initGappsMenu() {
 	gapps_menu.onwheel = (e) => {
-		console.log('delta - ' + e.deltaY);
 		if(gapps_menu.scrollTop == 0) {
 			if(e.deltaY > 0) {
 				gapps_menu.style.overflow = 'overlay';
@@ -16,7 +15,6 @@ function initGappsMenu() {
 		}
 	}
 	gapps_menu.onscroll = (e) => {
-		console.log('scroll - ' + gapps_menu.scrollTop);
 		if(gapps_menu.scrollTop == 0) {
 			gapps_menu.style.overflow = 'hidden';
 			gapps_menu_footer.style.display = 'block';
@@ -53,7 +51,6 @@ function initTextField() {
 	};
 }
 window.onload = () => {
-	console.log('load');
 	initGappsMenu();
 	initTextField();
 }
