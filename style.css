@@ -32,7 +32,6 @@ body {
 	vertical-align: middle;
 	line-height: 60px;
 	margin-right: 15px;
-	line-height: 13px;
 }
 #gapps_menu_switcher {
 	background-image: url(menu_gray.png);
@@ -61,6 +60,7 @@ body {
 	height: 300px;
 	width: 320px;
 	max-height: 310px;
+	line-height: 13px;
 	background-color: white;
 	overflow: hidden;
 	border-style: solid;
