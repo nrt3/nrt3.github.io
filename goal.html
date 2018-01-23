@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>New goal</title>
+<style>
+	body, ul {
+		margin: 0 auto 0 auto;
+		padding: 0;
+		font-family: arial, sans-serif;
+		width: 1024px;
+	}
+	li {
+		display: block;
+		list-style: none;
+	}
+	div, span, input {
+		box-sizing: border-box;
+	}
+	.create_goal_form {
+		width: 100%;
+	}
+	.create_goal_title, .text_field_title, .new_kr_link {
+		padding-left: 24px;
+		display: block;
+	}
+	.create_goal_title {
+		border-bottom-color: gray;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		height: 3em;
+		line-height: 3em;
+	}
+	input[type="text"], input[type="date"] {
+		display: inline-block;
+		height: 2em;
+		line-height: 2em;
+		border: 0;
+		border-radius: 3px;
+		box-shadow: 0px 0px 8px 0px;
+	}
+	input[type="text"] {
+		width: 60%;
+	}
+	input[type="date"] {
+		margin-left: 24px;
+	}
+	.text_field_title {
+		margin-top: 0.5em;
+	}
+	.goal_title_field {
+		margin-left: 24px;
+	}
+	.kr_label {
+		line-height: 2em;
+		width: 20px;
+		display: inline-block;
+		text-align: center;
+	}
+	.new_kr_link {
+		width: 62%;
+		text-align: right;
+	}
+	a, a:visited {
+		color: rgba(0,0,0,.54);
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+</style>
+</head>
+	
+<body>
+	<form class="create_goal_form">
+		<span class="create_goal_title">Create a new goal</span>
+		<span class="text_field_title">Goal title</span>
+		<input class="goal_title_field" type="text">
+		<span class="text_field_title">Key results</span>
+		<ul class="krs" id="kr_list">
+			<li class="kr" id="kr1">
+				<label class="kr_label" for="1_kr">1</label>
+				<input type="text" name="1_kr">
+			</li>
+			<li class="kr" id="kr2">
+				<label class="kr_label" for="2_kr">2</label>
+				<input type="text" name="2_kr">
+			</li>
+			<li class="kr" id="kr3">
+				<label class="kr_label" for="3_kr">3</label>
+				<input type="text" name="3_kr">
+			</li>
+		</ul>
+		<span class="new_kr_link" id="new_kr_link"><a href="#">+Add Key Result</a></span>
+		<span class="text_field_title">End date</span>
+		<input type="date" name="end_date">		
+	</form>
+	<script>
+		const krs = document.getElementsByClassName('kr');
+		let createKeyResult = () => {
+			let kr = document.createElement('li');
+			kr.className = 'kr';
+			kr.id = 'kr' + (krs.length + 1);
+			let label = document.createElement('label');
+			label.className = 'kr_label';
+			label.setAttribute('for', (krs.length + 1) + '_kr');
+			label.innerText = krs.length + 1;
+			let input = document.createElement('input');
+			input.type = 'text';
+			input.name = (krs.length + 1) + '_kr';
+			kr.append(label);
+			kr.append(document.createTextNode(' '));
+			kr.append(input);
+			kr_list.append(kr);
+		}
+		new_kr_link.addEventListener('click', (e) => {
+			e.preventDefault();
+			createKeyResult();
+		});
+	</script>
+</body>
+</html>
